@@ -4,6 +4,7 @@ def main():
     option = False #boolean, if false its mainal
     language = '' #selected cipher
     ciphers = ['Caesar Cipher', 'Atbash Cipher', 'ROT13 Cipher', 'Vigenere Cipher'] #list of all the ciphers that will be used
+    encryption = True #if false, the user wants to decrypt
 
     #loop that will be used for selection
     while True:
@@ -23,6 +24,29 @@ def main():
                 print('manial')
                 language = list_options(ciphers)
                 print(language)
+                
+                #asking the user what they want to do 
+                while True:
+                    #printing out the options
+                    print('1. Encrypt\n'
+                          '2. Decrypt')
+                    choice = int(input('Please chose a valid option\n'))
+
+                    #if they want to encrpt then it will stay true
+                    if choice == 1:
+                        encryption = True
+                        print('encryt')
+                        break
+                        
+                    #if the user wants to decrpt then it goes false
+                    elif choice == 2:
+                        encryption = False
+                        print('decrypt')
+                        break
+                        
+                    #just ask to enter a valid number
+                    else:
+                        print('please enter a valid number')
                 break
 
             #if user selected 2, its ai
