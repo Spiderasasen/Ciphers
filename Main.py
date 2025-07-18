@@ -3,7 +3,7 @@ from ciphers import caesar
 #main
 def main():
     # differnt vars
-    option = False #boolean, if false its mainal
+    option = '' #boolean, if false its mainal
     language = '' #selected cipher
     ciphers = ['Caesar Cipher', 'Atbash Cipher', 'ROT13 Cipher', 'Vigenere Cipher'] #list of all the ciphers that will be used
     encryption = True #if false, the user wants to decrypt
@@ -22,7 +22,7 @@ def main():
 
             #if the user slected 1, then the user can enerpt and decyept there own message
             if choice == 1:
-                option = False
+                option = 'm'
                 print('manial')
                 language = list_options(ciphers)
                 print(language)
@@ -53,7 +53,7 @@ def main():
 
             #if user selected 2, its ai
             elif choice == 2:
-                option = True
+                option = 'a'
                 print('ai')
                 language = list_options(ciphers)
                 print(language)
