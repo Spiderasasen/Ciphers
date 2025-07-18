@@ -1,29 +1,94 @@
-# making boolean options
-option = False #if false its mainal
-language = ''
+#main
+def main():
+    # differnt vars
+    option = False #boolean, if false its mainal
+    language = '' #selected cipher
+    ciphers = ['Caesar Cipher', 'Atbash Cipher', 'ROT13 Cipher', 'Vigenere Cipher'] #list of all the ciphers that will be used
 
-#loop that will be used for selection
-while True:
-    #selecting the right option for the user
-    print('Which one will you like to do?')
-    print('1. User\n'
-          '2. Ai')
+    #loop that will be used for selection
+    while True:
+        #seeing if the user selected the right number
+        try:
+            #selecting the right option for the user
+            print('Which one will you like to do?')
+            print('1. User\n'
+                  '2. Ai')
 
-    # var that will select the there option
-    choice = int(input())
+            # var that will select the there option
+            choice = int(input())
 
-    #if the user slected 1, then the user can enerpt and decyept there own message
-    if choice == 1:
-        option = False
-        print('manial')
-        break
+            #if the user slected 1, then the user can enerpt and decyept there own message
+            if choice == 1:
+                option = False
+                print('manial')
+                language = list_options(ciphers)
+                print(language)
+                break
 
-    #if user selected 2, its ai
-    elif choice == 2:
-        option == True
-        print('ai')
-        break
+            #if user selected 2, its ai
+            elif choice == 2:
+                option = True
+                print('ai')
+                language = list_options(ciphers)
+                print(language)
+                break
 
-    #else, no option was selcted
-    else:
-        print('Please select a valid option')
+            #else, no option was selcted
+            else:
+                print('Please select a valid option')
+
+        #if the user selected the something that is not a number
+        except ValueError:
+            print('please enter a valid number')
+
+        #if something else happend
+        except Exception as e:
+            print(f'Error occurred: {e}')
+            break
+
+#looping through a list and printing the list out
+def looping_list(list):
+    #to indcate the index
+    index = 1
+
+    #looping through the list and printing them
+    for item in list:
+        print(index, item)
+        index += 1
+
+#using the list to return a selected cipher
+def list_options(list):
+    #max value of the list
+    max_value = len(list)
+
+    while True:
+        #using the list to be printed
+        looping_list(list)
+
+        #seeing the user enters a valid number
+        try:
+            #asking the user to choose a cipher
+            choosen = int(input('Which cipher would you like to use?\n'))
+
+            #if the selected option is a valid option, return the cipher that was chosen
+            if 1 <= choosen <= max_value:
+                #pretty print - 1 = index value
+                return list[choosen - 1]
+
+            #if its not a valid option, ask for a valid option
+            else:
+                print('Please enter a valid option')
+
+        #if the user enters something that is not a number, asks the user to enter a valid number
+        except ValueError:
+            print('please enter a valid number')
+
+        #if something else happens
+        except Exception as e:
+            print(f'Unexpected error: {e}')
+            break
+
+
+#main function call
+if __name__ == "__main__":
+    main()
