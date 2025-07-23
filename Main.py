@@ -14,7 +14,7 @@ def main():
         try:
             #selecting the right option for the user
             print('Which one will you like to do?')
-            print('1. User\n'
+            print('1. Manual Input\n'
                   '2. Ai')
 
             # var that will select the there option
