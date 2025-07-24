@@ -4,6 +4,7 @@
 """
 import sys
 import math
+import random
 
 #approximate english letter frequencies
 ENGLISH_FREQ_PERCENTAGES = [
@@ -189,3 +190,65 @@ def decryptions(message : str, num_top_results: int = 5):
         print('predict the correct shift as the top result. Check other top candidates.')
 
 """AI Code"""
+#setting the code in its own list
+def reading_text(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            #reads all the lines in the text file and will return the list
+            lines = file.readlines()
+            return lines
+
+    #if the file is not correct or not found
+    except FileNotFoundError:
+        print('File not found')
+        return None
+
+    #if anything else happens wrong
+    except Exception as e:
+        print(f'Error Detected: {e}')
+        return None
+
+#ai section of the code
+def ai(valid):
+    #checking if its really ai
+    if not is_manual(valid):
+        #importing the list of words that will be incrpted
+        ciphers = reading_text('Text/text.txt')
+
+        #new list that will be used to alter the orginal text
+        clean_cipher = []
+
+        #removing the \n in the line
+        for text in ciphers:
+            clean_cipher.append(text.strip())
+
+        #mergin both cipher and clean_cipher
+        ciphers = clean_cipher
+
+        #var that will be used to get a syntax for the ciphers encrpytion
+        shifts = 0
+
+        #list that will hold the new encypted messages
+        encrypt_message = []
+
+        #loop that will encrypt all the ciphers
+        for cipher in ciphers:
+            #sets the amount of shifts
+            shifts = random.randint(1, 25)
+
+            #holding the encypted message
+            encrypt_message.append(encryptions(cipher, shifts))
+
+        #printing out all the chipers so the player can see
+        print(encrypt_message, '\n Can you guess the messages?')
+        enter = input()
+
+        #looping through all the ciphers and showing the player all the decryted ciphers
+        for message in encrypt_message:
+            #this function just deciphers the message
+            decryptions(message)
+            #just there for the user can see the deciphered message
+            enter = input()
+
+    #its actually manual not ai, so return false
+    return False
