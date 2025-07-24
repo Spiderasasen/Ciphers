@@ -1,5 +1,6 @@
 #importing the test cipher section
 from ciphers.caesar import *
+from ciphers.morse_code import *
 
 
 def main():
@@ -8,7 +9,8 @@ def main():
     # manual('m', False)
 
     #testing the ai code
-    ai('a')
+    # ai('a')
+    print('')
 
 if __name__ == "__main__":
     main()
