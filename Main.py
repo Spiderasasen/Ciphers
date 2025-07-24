@@ -7,7 +7,7 @@ def main():
     # differnt vars
     option = '' #boolean, if m its mainal, otherwise its ai
     language = '' #selected cipher
-    ciphers = ['Caesar Cipher', 'Atbash Cipher', 'ROT13 Cipher', 'Vigenere Cipher'] #list of all the ciphers that will be used
+    ciphers = ['Caesar Cipher', 'Morse Code', 'Atbash Cipher', 'ROT13 Cipher', 'Vigenere Cipher'] #list of all the ciphers that will be used
     encryption = True #if false, the user wants to decrypt
 
     #loop that will be used for selection
