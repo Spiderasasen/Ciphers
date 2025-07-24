@@ -1,4 +1,6 @@
-from ciphers import caesar
+import sys
+
+from ciphers.caesar import *
 
 #main
 def main():
@@ -15,7 +17,8 @@ def main():
             #selecting the right option for the user
             print('Which one will you like to do?')
             print('1. Manual Input\n'
-                  '2. Ai')
+                  '2. Ai\n'
+                  '3. Exit')
 
             # var that will select the there option
             choice = int(input())
@@ -25,7 +28,6 @@ def main():
                 option = 'm'
                 print('manial')
                 language = list_options(ciphers)
-                print(language)
                 
                 #asking the user what they want to do 
                 while True:
@@ -37,27 +39,45 @@ def main():
                     #if they want to encrpt then it will stay true
                     if choice == 1:
                         encryption = True
-                        print('encryt')
-                        break
-                        
+
+                        #checking if the language the user selected
+                        match language:
+                            #if the language is a caeser cipher
+                            case 'Caesar Cipher':
+                                manual_ceaser(option, encryption)
+
                     #if the user wants to decrpt then it goes false
                     elif choice == 2:
                         encryption = False
-                        print('decrypt')
-                        break
+
+                        #checking what langauge the user selceted
+                        match language:
+                            #if the language is a caeser cipher
+                            case 'Caesar Cipher':
+                                manual_ceaser(option, encryption)
                         
                     #just ask to enter a valid number
                     else:
                         print('please enter a valid number')
-                break
+
+                    #just leaves the manual section
+                    break
 
             #if user selected 2, its ai
             elif choice == 2:
                 option = 'a'
                 print('ai')
                 language = list_options(ciphers)
-                print(language)
-                break
+
+                #seeing what langauge that user selected
+                match language:
+                    #if the user selected caeser cipher
+                    case "Caesar Cipher":
+                        ai_ceaser(option)
+
+            #closes the program
+            elif choice == 3:
+                sys.exit(1)
 
             #else, no option was selcted
             else:

@@ -24,11 +24,11 @@ def is_manual(option):
 
 
 """Manual code"""
-def manual(valid, encryption):
+def manual_ceaser(valid, encryption):
     #checking if the option is manual first
     if is_manual(valid):
         #checking if the code is encrpytion or not
-        if encryption:
+        if encryption: #if true, we encypt a message
             #user puts there message
             user_input = input('Please enter your message...\n')
 
@@ -61,7 +61,7 @@ def manual(valid, encryption):
         #we are decrpyting
         else:
             user_input = input('What is the encrypted message?\n')
-            decryptions(user_input)
+            decryptions_ceaser(user_input)
 
     #if not manual then it return false
     return False
@@ -142,7 +142,7 @@ def calculate_chi_squared(observed_counts: list[int], total_letters: int) -> flo
 
     return chi_squared
 
-def decryptions(message : str, num_top_results: int = 5):
+def decryptions_ceaser(message : str, num_top_results: int = 5):
     #used to hold the message
     message_holder = ''
     #attempts to decypt s Caeser cipher without knowing the shift.
@@ -209,7 +209,7 @@ def reading_text(file_path):
         return None
 
 #ai section of the code
-def ai(valid):
+def ai_ceaser(valid):
     #checking if its really ai
     if not is_manual(valid):
         #importing the list of words that will be incrpted
@@ -246,7 +246,7 @@ def ai(valid):
         #looping through all the ciphers and showing the player all the decryted ciphers
         for message in encrypt_message:
             #this function just deciphers the message
-            decryptions(message)
+            decryptions_ceaser(message)
             #just there for the user can see the deciphered message
             enter = input()
 
