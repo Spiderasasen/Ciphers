@@ -2,6 +2,7 @@
 import sys
 from ciphers.caesar import *
 from ciphers.morse_code import *
+from ciphers.atbash import *
 
 #main
 def main():
@@ -27,7 +28,6 @@ def main():
             #if the user slected 1, then the user can enerpt and decyept there own message
             if choice == 1:
                 option = 'm'
-                print('manial')
                 language = list_options(ciphers)
                 
                 #asking the user what they want to do 
@@ -51,6 +51,10 @@ def main():
                             case 'Morse Code':
                                 manual_morse_code(option, encryption)
 
+                            #if the langauge is atbash
+                            case 'Atbash Cipher':
+                                manual_atbash(option, encryption)
+
                     #if the user wants to decrpt then it goes false
                     elif choice == 2:
                         encryption = False
@@ -64,6 +68,10 @@ def main():
                             #if the langauge is morse code
                             case 'Morse Code':
                                 manual_morse_code(option, encryption)
+
+                            #if the langauge is atbash
+                            case 'Atbash Cipher':
+                                manual_atbash(option, encryption)
                         
                     #just ask to enter a valid number
                     else:
@@ -87,6 +95,10 @@ def main():
                     #if the user selceted morse code
                     case 'Morse Code':
                         ai_morse_code(option)
+
+                    #if the user selceted atbash
+                    case 'Atbash Cipher':
+                        ai_atbash(option)
 
             #closes the program
             elif choice == 3:
