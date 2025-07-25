@@ -106,23 +106,23 @@ def main():
             break
 
 #looping through a list and printing the list out
-def looping_list(list):
+def looping_list(lists):
     #to indcate the index
     index = 1
 
     #looping through the list and printing them
-    for item in list:
+    for item in lists:
         print(index, item)
         index += 1
 
 #using the list to return a selected cipher
-def list_options(list):
+def list_options(lists):
     #max value of the list
-    max_value = len(list)
+    max_value = len(lists)
 
     while True:
         #using the list to be printed
-        looping_list(list)
+        looping_list(lists)
 
         #seeing the user enters a valid number
         try:
@@ -132,7 +132,7 @@ def list_options(list):
             #if the selected option is a valid option, return the cipher that was chosen
             if 1 <= choosen <= max_value:
                 #pretty print - 1 = index value
-                return list[choosen - 1]
+                return lists[choosen - 1]
 
             #if its not a valid option, ask for a valid option
             else:
