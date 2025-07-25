@@ -10,9 +10,13 @@ def main():
 
     #testing the ai code
     # ai('a')
-    manual_morse_code('m', True)
-    manual_morse_code('m', False)
-    manual_morse_code('a', True)
+
+    #morse code
+    # manual_morse_code('m', True)
+    # manual_morse_code('m', False)
+    # manual_morse_code('a', True)
+    ai_morse_code('a')
+
 
 if __name__ == "__main__":
     main()

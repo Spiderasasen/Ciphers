@@ -1,3 +1,6 @@
+#imports
+from Text.text_reader import reading_text
+
 #Dictionary to convert charcters to morse code
 MORSE_CODE_DICT = {
     #Letters
@@ -22,6 +25,9 @@ MORSE_CODE_DICT = {
 #Dictionary to convery Morse code back to characters (inverse)
 MORSE_CODE_DECODE_DICT = {value: key for key, value in MORSE_CODE_DICT.items()}
 
+"""
+This is the manual section of the code
+"""
 def is_manual(valid):
     """
     Checking if its really manual section by the user
@@ -122,3 +128,47 @@ def morse_decode(morse_message: str) -> str:
 
     #joins words with a single space
     return " ".join(decoded_words)
+
+#ai sections
+def ai_morse_code(valid):
+    #checking if the section is ai
+    if not is_manual(valid):
+        #importing the list of code that will be encrypted
+        ciphers = reading_text('Text/text.txt')
+        ciphers2 = reading_text('Text/morse_code_text.txt')
+
+        #combining the 2 list
+        combined_list = ciphers + ciphers2
+
+        #new cipher that will be used to alter the orginal text
+        clean_cipher = []
+
+        #loop to remove the /n
+        for text in combined_list:
+            clean_cipher.append(text.strip())
+
+
+        #returning the alter text to the newsit cipher
+        ciphers = clean_cipher
+
+        #list to hold the encrypted message
+        encrypted_list = []
+
+        #loop that will encrypt the message
+        for message in ciphers:
+            encrypted_list.append(encryption(message))
+
+        #printing the encrpted message
+        print(encrypted_list, '\nDo you know what each message says?')
+        enter = input()
+
+        #looping the decryptions
+        for code in encrypted_list:
+            #decodes the message
+            print(morse_decode(code))
+            #just used so the user can see the message
+            enter = input()
+
+    #else it will return false
+    else:
+        return False

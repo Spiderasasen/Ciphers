@@ -5,6 +5,7 @@
 import sys
 import math
 import random
+from Text.text_reader import reading_text
 
 #approximate english letter frequencies
 ENGLISH_FREQ_PERCENTAGES = [
@@ -190,24 +191,6 @@ def decryptions_ceaser(message : str, num_top_results: int = 5):
         print('predict the correct shift as the top result. Check other top candidates.')
 
 """AI Code"""
-#setting the code in its own list
-def reading_text(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            #reads all the lines in the text file and will return the list
-            lines = file.readlines()
-            return lines
-
-    #if the file is not correct or not found
-    except FileNotFoundError:
-        print('File not found')
-        return None
-
-    #if anything else happens wrong
-    except Exception as e:
-        print(f'Error Detected: {e}')
-        return None
-
 #ai section of the code
 def ai_ceaser(valid):
     #checking if its really ai
