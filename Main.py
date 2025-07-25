@@ -1,6 +1,7 @@
 #imports
 import sys
 from ciphers.caesar import *
+from ciphers.morse_code import *
 
 #main
 def main():
@@ -46,6 +47,10 @@ def main():
                             case 'Caesar Cipher':
                                 manual_ceaser(option, encryption)
 
+                            #if the language is morse code
+                            case 'Morse Code':
+                                manual_morse_code(option, encryption)
+
                     #if the user wants to decrpt then it goes false
                     elif choice == 2:
                         encryption = False
@@ -55,6 +60,10 @@ def main():
                             #if the language is a caeser cipher
                             case 'Caesar Cipher':
                                 manual_ceaser(option, encryption)
+
+                            #if the langauge is morse code
+                            case 'Morse Code':
+                                manual_morse_code(option, encryption)
                         
                     #just ask to enter a valid number
                     else:
@@ -74,6 +83,10 @@ def main():
                     #if the user selected caeser cipher
                     case "Caesar Cipher":
                         ai_ceaser(option)
+
+                    #if the user selceted morse code
+                    case 'Morse Code':
+                        ai_morse_code(option)
 
             #closes the program
             elif choice == 3:
