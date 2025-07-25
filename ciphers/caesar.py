@@ -6,6 +6,7 @@ import sys
 import math
 import random
 from Text.text_reader import reading_text
+from ciphers.checking_if_manual import is_manual
 
 #approximate english letter frequencies
 ENGLISH_FREQ_PERCENTAGES = [
@@ -14,15 +15,6 @@ ENGLISH_FREQ_PERCENTAGES = [
     0.07507, 0.01929, 0.00095, 0.05987, 0.06327, 0.09056, 0.02758, # O - U
     0.00978, 0.02360, 0.00150, 0.01974, 0.00074 # V - Z
 ]
-
-#checking if the option is manual or not
-def is_manual(option):
-    #if option is true, then we enter manual
-    if option == 'm':
-        return True
-    #otherwise its ai
-    return False
-
 
 """Manual code"""
 def manual_ceaser(valid, encryption):

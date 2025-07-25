@@ -1,5 +1,6 @@
 #imports
 from Text.text_reader import reading_text
+from ciphers.checking_if_manual import is_manual
 
 #Dictionary to convert charcters to morse code
 MORSE_CODE_DICT = {
@@ -28,15 +29,6 @@ MORSE_CODE_DECODE_DICT = {value: key for key, value in MORSE_CODE_DICT.items()}
 """
 This is the manual section of the code
 """
-def is_manual(valid):
-    """
-    Checking if its really manual section by the user
-    """
-    # if option says m, its manual
-    if valid == 'm':
-        return True
-    #otherwise its ai
-    return False
 
 def manual_morse_code(valid, encryptions):
     #if the option is valid then start checking for encryptions
