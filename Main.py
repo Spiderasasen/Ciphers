@@ -3,6 +3,7 @@ import sys
 from ciphers.caesar import *
 from ciphers.morse_code import *
 from ciphers.atbash import *
+from ciphers.ROT13 import *
 
 #main
 def main():
@@ -55,6 +56,10 @@ def main():
                             case 'Atbash Cipher':
                                 manual_atbash(option, encryption)
 
+                            #if the language is ROT13
+                            case 'ROT13 Cipher':
+                                rot13_manual(option, encryption)
+
                     #if the user wants to decrpt then it goes false
                     elif choice == 2:
                         encryption = False
@@ -72,6 +77,10 @@ def main():
                             #if the langauge is atbash
                             case 'Atbash Cipher':
                                 manual_atbash(option, encryption)
+
+                            #if the language is ROT13
+                            case 'ROT13 Cipher':
+                                rot13_manual(option, encryption)
                         
                     #just ask to enter a valid number
                     else:
@@ -99,6 +108,10 @@ def main():
                     #if the user selceted atbash
                     case 'Atbash Cipher':
                         ai_atbash(option)
+
+                    #if the user selected ROT13
+                    case 'ROT13 Cipher':
+                        ai_rot13(option)
 
             #closes the program
             elif choice == 3:
